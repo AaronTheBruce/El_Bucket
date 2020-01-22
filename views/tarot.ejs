@@ -1,0 +1,65 @@
+<% include ./partials/header %>
+
+<header class="jumbotron">
+	<h1 class="container">
+		Single Card Draw
+	</h1>
+</header>
+
+<% var deck = tarots %>
+<!-- Shuffle deck -->
+<script>
+	function suffleDeck(deck){
+		var i = 0, 
+		j = 0, 
+		temp = null;
+		for(i = deck.length - 1; i > 0; i -= 1){
+			j = Math.floor(Math.random() * (i + 1));
+			x = (Math.floor(Math.random() * 2) == 0);
+			if(x % 1){
+				deck[i].isInverted = true;
+			} else {
+				deck[i].isInverted = false;
+			}
+			temp = deck[i];
+			deck[i] = deck[j];
+			deck[j] = temp;
+		}
+	}
+</script>
+
+<div class="container">
+			
+			<% var randomInt = Math.floor((Math.random() * deck.length) + 0) %>
+			<% for(var i = 0; i < deck.length; i++){ %>
+				<% if(i === randomInt){ %>
+					<div class="container center fix-width">
+						<div class="panel panel-default">
+							<div class="container">
+								<% if(deck[i].majorArchana === true){ %>
+									<h4><%= deck[i].number %>: <%= deck[i].name %></h4>
+								<% } else { %>
+									<h4><%= deck[i].name %></h4>
+								<% } %>
+							</div>
+							<div class="panel-body">
+								<% if(deck[i].isInverted === false){ %>
+									<strong>Vertical Image</strong><br><br>
+									<strong>Meaning</strong>:<br>
+									<%= deck[i].meaning %>
+								<% } else { %>
+									<strong>Inversed Image</strong><br><br>
+									<strong>Meaning</strong>:<br>
+									<%= deck[i].inversed %>
+								<% } %>
+							</div>
+						</div>
+					</div>
+				<% } %>
+			<% } %>
+
+		<a class="btn btn-primary" href="/projects/tarot">Suffle & Draw again</a>
+		<a class="btn btn-danger" href="/projects/tarotHome">Return</a>
+</div>
+<br>
+<% include ./partials/footer %>

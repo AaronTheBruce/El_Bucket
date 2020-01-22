@@ -1,0 +1,82 @@
+<% include ./partials/header %>
+
+<header class="jumbotron">
+	<h1 class="container">
+		Three Card Draw
+	</h1>
+</header>
+
+<div class="container">
+			<% var deck = tarots %>
+            <% var randomInt1 = Math.floor((Math.random() * deck.length) + 0) %>
+            
+            <% var randomInt2 = Math.floor((Math.random() * deck.length) + 0) %>
+           
+            <% var randomInt3 = Math.floor((Math.random() * deck.length) + 0) %>
+            
+            <div class="container center">Action to Take:</div>
+            <% for(var i = 0; i < deck.length; i++){ %>
+                <% if(i === randomInt1){ %>
+                    <div class="container center fix-width">
+                        <div class="panel panel-default">
+                            <div class="container">
+                                <% if(deck[i].majorArchana === true){ %>
+                                    <h4><%= deck[i].number %>: <%= deck[i].name %></h4>
+                                <% } else { %>
+                                    <h4><%= deck[i].name %></h4>
+                                <% } %>
+                            </div>
+                            <div class="panel-body">
+                                <strong>Meaning</strong>:<br>
+                                <%= deck[i].meaning %>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            <% } %>
+            <div class="container center">The Situation:</div>
+            <% for(var i = 0; i < deck.length; i++){ %>    
+                <% if(i === randomInt2 && i !== randomInt1){ %>
+					<div class="container center fix-width">
+						<div class="panel panel-default">
+							<div class="container">
+								<% if(deck[i].majorArchana === true){ %>
+									<h4><%= deck[i].number %>: <%= deck[i].name %></h4>
+								<% } else { %>
+									<h4><%= deck[i].name %></h4>
+								<% } %>
+							</div>
+							<div class="panel-body">
+								<strong>Meaning</strong>:<br>
+								<%= deck[i].meaning %>
+							</div>
+						</div>
+					</div>
+                <% } %>
+            <% } %>
+            <div class="container center">Action to Avoid:</div>
+            <% for(var i = 0; i < deck.length; i++){ %> 
+                <% if(i === randomInt3 && i !== randomInt1 && i !== randomInt2){ %>
+					<div class="container center fix-width">
+						<div class="panel panel-default">
+							<div class="container">
+								<% if(deck[i].majorArchana === true){ %>
+									<h4><%= deck[i].number %>: <%= deck[i].name %></h4>
+								<% } else { %>
+									<h4><%= deck[i].name %></h4>
+								<% } %>
+							</div>
+							<div class="panel-body">
+								<strong>Meaning</strong>:<br>
+								<%= deck[i].meaning %>
+							</div>
+						</div>
+					</div>
+				<% } %>
+            <% } %>
+
+		<a class="btn btn-primary" href="/projects/tarot3">Suffle & Draw again</a>
+		<a class="btn btn-danger" href="/projects/tarotHome">Return</a>
+</div>
+<br>
+<% include ./partials/footer %>

@@ -1,0 +1,22 @@
+<!-- This template will display all the cards in the database on the webpage -->
+<div class="container">
+	Will render all the cards to the page in an unorganized fashion:
+	<br>
+	<br>
+	<div class="row">
+		<div class="col-6 col-md-4">
+			<div class="row" style="display:flex; flex-wrap: wrap;">
+				<% tarots.forEach(function(cards){ %>
+					<div class="col-md-8">
+						<div class="caption">
+							<div><%= cards.number %> <%= cards.name %></div>
+							<p>
+								<%= cards.description %>
+							</p>
+						</div>
+					</div>
+				<% }); %>
+			</div>
+		</div>
+	</div>
+</div>
