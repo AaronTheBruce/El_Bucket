@@ -3,11 +3,12 @@ var express 	= require("express"),
 	bodyParser 	= require("body-parser"),
 	mongoose 	= require("mongoose"),
 	seedDB		= require("./seed"),
-	Tarot		= require("./models/tarot");
+	Tarot		= require("./models/tarot"),
+	dotenv 		= require('dotenv').config();
 
 // Connect to MongoDB database
 // mongoose.connect('mongodb://localhost:27017/personal_website', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true});
-mongoose.connect('mongodb+srv://AaronBruce:<password>@cluster0-qumhf.mongodb.net/test?retryWrites=true&w=majority', { 
+mongoose.connect(process.env.MONGOLAB_URI, { 
 	useNewUrlParser: true, 
 	useUnifiedTopology: true, 
 	useFindAndModify: false, 
