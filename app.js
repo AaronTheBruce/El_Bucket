@@ -8,7 +8,7 @@ var express 	= require("express"),
 
 // Connect to MongoDB database
 // mongoose.connect('mongodb://localhost:27017/personal_website', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true});
-mongoose.connect(process.env.MONGOLAB_URI, { 
+mongoose.connect('mongodb+srv://AaronBruce:Greenparty101@cluster0-qumhf.mongodb.net/test?retryWrites=true&w=majority', { 
 	useNewUrlParser: true, 
 	useUnifiedTopology: true, 
 	useFindAndModify: false, 
