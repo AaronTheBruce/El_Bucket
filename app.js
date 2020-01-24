@@ -7,10 +7,9 @@ var express 	= require("express"),
 	dotenv 		= require('dotenv').config();
 
 
-
+var url = process.env.DATABASEURL || 'mongodb://localhost:27017/personal_website';
 // Connect to MongoDB database
-// mongoose.connect('mongodb://localhost:27017/personal_website', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true});
-mongoose.connect(process.env.DATABASEURL, { 
+mongoose.connect(url, { 
 	useNewUrlParser: true, 
 	useUnifiedTopology: true, 
 	useFindAndModify: false, 
