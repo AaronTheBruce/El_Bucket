@@ -6,9 +6,11 @@ var express 	= require("express"),
 	Tarot		= require("./models/tarot"),
 	dotenv 		= require('dotenv').config();
 
+
+
 // Connect to MongoDB database
 // mongoose.connect('mongodb://localhost:27017/personal_website', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true});
-mongoose.connect('mongodb+srv://AaronBruce:Greenparty101@cluster0-qumhf.mongodb.net/test?retryWrites=true&w=majority', { 
+mongoose.connect(process.env.DATABASEURL, { 
 	useNewUrlParser: true, 
 	useUnifiedTopology: true, 
 	useFindAndModify: false, 
