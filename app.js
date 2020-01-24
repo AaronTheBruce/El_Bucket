@@ -83,9 +83,9 @@ app.get("/projects/tarot3", function(req, res){
 	});
 });
 
+// heroku requires the port number to be dynamically set
+var port = process.env.PORT || 3000;
 
-
-
-app.listen(3000, function(req, res){
+app.listen(port, function(req, res){
 	console.log("The PersonalProject server has started!");
 });
