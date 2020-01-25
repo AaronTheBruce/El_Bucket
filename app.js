@@ -11,7 +11,7 @@ var url = process.env.DATABASEURL || 'mongodb://localhost:27017/personal_website
 // Connect to MongoDB database
 mongoose.connect(url, { 
 	useNewUrlParser: true, 
-	useUnifiedTopology: true, 
+//	useUnifiedTopology: true, 
 	useFindAndModify: false, 
 	useCreateIndex: true}).then(() => {
 		console.log('Connected to DB!');
